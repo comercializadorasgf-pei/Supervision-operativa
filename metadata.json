@@ -1,0 +1,8 @@
+{
+  "name": "Supervisión Operativa",
+  "description": "Panel de control para gestión de supervisión operativa, seguimiento de visitas y administración de clientes.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}

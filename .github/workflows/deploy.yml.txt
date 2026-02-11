@@ -1,0 +1,22 @@
+name: 🚀 Desplegar a cPanel
+
+on:
+  push:
+    branches:
+      - main  # <-- Si tu rama principal se llama "master", cambia "main" por "master"
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Obtener código mas reciente
+      uses: actions/checkout@v3
+
+    - name: 📂 Sincronizar archivos por FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        server-dir: ./  # Como usas un usuario específico de subdominio, suele ser la raíz
